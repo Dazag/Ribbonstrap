@@ -90,7 +90,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $('.ribbon').ribbon();
-                $('#pages').ribbon();
+                $('.pages').ribbon();
             });</script>
     </body>
 
