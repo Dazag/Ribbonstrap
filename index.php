@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Chuletator | Ribbon</title>
+        <title>Ribbonstrap</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="static/images/app_icon.ico">
 
@@ -22,17 +22,17 @@
     <body>
 
         <!--Here the structure starts-->
-        <div class="ribbon">
-            <div class="ribbon-tabs">
-                <span id="tab-main" class="ribbon-tab main-tab">Archivo</span>
-                <span id="tab-general" class="ribbon-tab">General</span>
-                <span id="tab-insert" class="ribbon-tab">Insertar</span>
-                <span id="tab-options" class="ribbon-tab">Opciones</span>
-                <span id="tab-info" class="ribbon-tab">Información</span>
-                <span id="tab-help" class="ribbon-tab">Ayuda</span>
-            </div>
+        <div class="ribbon" unselectable="on">
+            <ul class="ribbon-tabs">
+                <li class="main-tab"><a href="#main" data-toggle="tab">Archivo</a></li>
+                <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+                <li><a href="#insert" data-toggle="tab">Insertar</a></li>
+                <li><a href="#options" data-toggle="tab">Opciones</a></li>
+                <li><a href="#info" data-toggle="tab">Información</a></li>
+                <li><a href="#help" data-toggle="tab">Ayuda</a></li>
+            </ul>
             <div class="ribbon-content">
-                <div id="main" class="ribbon-panel">  
+                <div id="main" class="ribbon-pane">
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>
@@ -43,7 +43,7 @@
                         <div class="ribbon-btn"></div>
                     </div>
                 </div>
-                <div id="general" class="ribbon-panel">  
+                <div id="general" class="ribbon-pane">  
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>
@@ -54,22 +54,22 @@
                         <div class="ribbon-btn"></div>
                     </div>
                 </div>
-                <div id="insert" class="ribbon-panel">   
+                <div id="insert" class="ribbon-pane">   
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                    
                 </div>
-                <div id="options" class="ribbon-panel">   
+                <div id="options" class="ribbon-pane">   
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                    
                 </div>
-                <div id="info" class="ribbon-panel">     
+                <div id="info" class="ribbon-pane">     
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                  
                 </div>
-                <div id="help" class="ribbon-panel">  
+                <div id="help" class="ribbon-pane">  
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                  
@@ -77,11 +77,11 @@
             </div>
         </div>
         <div class="pages">
-            <div class="ribbon-tabs">
-                <span class="ribbon-tab" id="file-0">chuleta1.txt</span>
-                <span class="ribbon-tab" id="file-0">chuleta2.txt</span>
-                <span class="ribbon-tab" id="file-0">chuleta3.txt</span>
-            </div>
+            <ul class="ribbon-tabs">
+                <li><a  id="file-0">chuleta1.txt</a></li>
+                <li><a  id="file-0">chuleta2.txt</a></li>
+                <li><a  id="file-0">chuleta3.txt</a></li>
+            </ul>
         </div>
 
         <!--Load javascripts -->        

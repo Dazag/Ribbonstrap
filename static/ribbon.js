@@ -7,80 +7,72 @@
  */
 
 !function($) {
-
     $.fn.ribbon = function(options) {
 
         //initialize        
-        /**
-         * Add class active for first time
-         */
-            $(this).find('.ribbon-tab').closest('.ribbon-tabs').each(function(){
-                var ribbon_tab_active = $(this).find('.ribbon-tab.active');
-                
-                if (ribbon_tab_active.length === 0) {
-                    $(this).find('.ribbon-tab:not(.main-tab):first').addClass('active');
-                }
-            });
-        
-        
-        /**
-         * Evento cambia la clase active sobre evento click en el boton
-         */
-        $(this).find('.ribbon-tab').click(function() {
-            var current_tab = this;
+        var ribbon_object = $(this);
 
-            $(this).closest('.ribbon-tabs').find('.ribbon-tab').each(function() {
-                $(this).toggleClass('active', this === current_tab);
-            });
+        /**
+         * Click event on .ribbon-tabs li change to the active class
+         */
+        ribbon_object.find('li').click(function() {
 
-            $(this).closest('.ribbon-tabs').trigger('tab_changed');
+            if (!$(this).hasClass('main-tab')) {
+                var current_tab = this;
+
+                $(this).closest('.ribbon-tabs').find('li').each(function() {
+                    $(this).toggleClass('active', this === current_tab);
+                });
+
+                var tab_actived = $(this).closest('.ribbon-tabs').find('li.active');
+                $(this).trigger('tab_changed', tab_actived);
+            }
         });
 
-        /**
-         * Add active class to the ribbon_tab and select its appropiate content to show
-         * @param {node} ribbon_tab
-         */
-        $.fn.tab_content_select = function(ribbon_tab) {
-            ribbon_tab.addClass('active');
-            var content = ribbon_tab.attr('id');
-            var content_name = content.toLowerCase().replace("tab-", "");
-//            ribbon_tab.find('#' + content_name);
-        };
-        
-        
         /*Events*/
 
         /**
          * Change active tab when scrolling up,down hover the ribbon
          * @param {event} event 
          * @param {speed} delta 
+         * @return {boolean} always return false
          */
-        $(this).on('mousewheel', function(event, delta) {
+        ribbon_object.on('mousewheel', function(event, delta) {
             var dir = delta > 0 ? true : false;
-            var current_active = $(this).find('.ribbon-tab.active');
+            var current_active = ribbon_object.find('li.active');
 
             if (dir) {
                 //arriba
-                var next_tab = current_active.next('.ribbon-tab:not(.main-tab)');
+                var next_tab = current_active.next('.ribbon-tabs li:not(.main-tab)');
                 if (next_tab.length !== 0) {
                     current_active.toggleClass('active');
-                    next_tab.addClass('active')
-                            .trigger('tab_changed');
+                    next_tab.trigger('tab_changed', next_tab);
                 }
             } else {
                 //abajo
-                var prev_tab = current_active.prev('.ribbon-tab:not(.main-tab)');
+                var prev_tab = current_active.prev('.ribbon-tabs li:not(.main-tab)');
                 if (prev_tab.length !== 0) {
-                    current_active.toggleClass('active')
-                    prev_tab.addClass('active')
-                            .trigger('tab_changed');
+                    current_active.toggleClass('active');
+                    prev_tab.trigger('tab_changed', prev_tab);
                 }
             }
             return false;
         });
 
-        $(this).on('tab_changed', function() {
-            console.log('tab changed by: ' + this);
+        ribbon_object.on('tab_changed', function(event) {
+            var tab = $(event.target);
+
+            if (!tab.hasClass('active'))
+                tab.addClass('active');
+
+            var pane_id = tab.data('toggle');
+            console.log(pane_id);
+            var selected_pane = ribbon_object.find('#' + pane_id);
+
+            ribbon_object.find('.ribbon-pane.selected');
+            selected_pane.addClass('active');
+
+            //console.log(selected_pane);
         });
     };
 

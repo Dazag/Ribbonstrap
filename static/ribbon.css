@@ -8,58 +8,105 @@
 body{
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 20px;
     color: #333;
     padding-top: 200px;
 }
 
 .ribbon{       
+    font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
     position: fixed;
     top:0;
     width: 100%;
     box-shadow: 0px 3px 6px #373737;
+    /*No select text*/
+    -webkit-user-select: none;       
+    -moz-user-select: none; 
+    -ms-user-select: none;
+
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
 }
 
+ul{
+    padding-left:0;
+    padding-right:0;
+    margin: 0;
+}
 .ribbon-tabs{
+    font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
+    list-style: none;
     padding-top: 1.5%;
-   padding-bottom: 3px;
     font-size: 1em;   
 }
+
 
 .ribbon-content{
     min-height: 80px;    
     padding: 1% 1% 0.5% 1.5%;
 }
 
-.ribbon-panel{
+.ribbon-pane{
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
 
-.ribbon-tab{    
+li{
+    float: left;
+    line-height: 20px;
+}
+
+.ribbon-tabs li a{   
+    display: block;
+    border: transparent solid 1px;
     cursor: pointer;
     padding: 5px 1.5%;
     margin-left: 1%;
+    margin-bottom:-1px;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;padding-right: 12px;
+    padding-left: 12px;
+    margin-right: 5px;
 }
 
-.ribbon-tab.active {
+.ribbon-tabs:before,  .ribbon-tabs:after{
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.ribbon-tabs:after, .ribbon-pills:after {
+    clear: both;
+}
+
+.ribbon-tabs li a{
+    text-decoration: none;
+    color: black;
+}
+
+.ribbon-tabs .active a{
     cursor: default;
     padding-bottom: 6px;
     border: #859ebf solid 1px;
     border-bottom: none;    
 }
 
+/*.ribbon-content .ribbon-pane:not(:first-child){  
+    display: none;
+}*/
 
-.ribbon-content .ribbon-panel:not(:first-child){  
+.ribbon-pane:not(.selected){
     display: none;
 }
 
-.ribbon-tabs .main-tab {
+.ribbon-pane.selected{
+    display: block;
+}
+
+.ribbon-tabs .main-tab a {
     border: 1px solid #1f48a1;
     border-bottom: none;
     color: #fff;
@@ -72,7 +119,7 @@ body{
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4488e5),color-stop(100%,#2860b3));
 }
 
-.ribbon-tabs .main-tab:hover {
+.ribbon-tabs .main-tab a:hover {
     border: 1px solid #1f48a1;
     border-bottom: none;
 
