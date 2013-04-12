@@ -16,13 +16,17 @@
 
         <!--Check the route to css and js is right-->
         <link type="text/css" rel="stylesheet" href="static/ribbon.css">
-        <link type="text/css" rel="stylesheet" href="static/ribbon-blue.css">
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="static/ribbon-default.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>        
+        <script type="text/javascript">
+            !window.jQuery && document.write(unescape('%3Cscript src="static/jquery-1.9.1.min.js"%3E%3C/script%3E'));
+                </script>
     </head>
     <body>
 
         <!--Here the structure starts-->
         <div class="ribbon" unselectable="on">
+            <p class="ribbon-title">Nombre del Documento - &copy Ribbonstrap 2013</p>
             <ul class="ribbon-tabs">
                 <li class="main-tab"><a href="#main" data-toggle="tab">Archivo</a></li>
                 <li class="active"><a href="#general" data-toggle="tab">General</a></li>
@@ -30,6 +34,7 @@
                 <li><a href="#options" data-toggle="tab">Opciones</a></li>
                 <li><a href="#info" data-toggle="tab">Información</a></li>
                 <li><a href="#help" data-toggle="tab">Ayuda</a></li>
+                <li class="context-tab"><a href="#images" data-toggle="tab">Imágenes</a></li>
             </ul>
             <div class="ribbon-content">
                 <div id="main" class="ribbon-pane">
@@ -43,7 +48,7 @@
                         <div class="ribbon-btn"></div>
                     </div>
                 </div>
-                <div id="general" class="ribbon-pane">  
+                <div id="general" class="ribbon-pane active">  
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>
@@ -74,13 +79,18 @@
                         <div class="ribbon-btn"></div>
                     </div>                  
                 </div>
+                <div id="images" class="ribbon-pane">
+                    <div class="ribbon-group">
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="pages">
             <ul class="ribbon-tabs">
-                <li><a  id="file-0">chuleta1.txt</a></li>
-                <li><a  id="file-0">chuleta2.txt</a></li>
-                <li><a  id="file-0">chuleta3.txt</a></li>
+                <li><a data-toggle="page">chuleta1.txt</a></li>
+                <li><a>chuleta2.txt</a></li>
+                <li><a>chuleta3.txt</a></li>
             </ul>
         </div>
 
