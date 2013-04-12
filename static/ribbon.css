@@ -12,6 +12,7 @@ body{
     line-height: 20px;
     color: #333;
     padding-top: 200px;
+    background-color: #c9cdd2;
 }
 
 .ribbon{       
@@ -28,19 +29,30 @@ body{
     /* Rules below not implemented in browsers yet */
     -o-user-select: none;
 }
+.ribbon-title {
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 9px;
+    margin-bottom: 0;
+}
 
 ul{
     padding-left:0;
     padding-right:0;
     margin: 0;
 }
+
+li{
+    float: left;
+    line-height: 20px;
+}
+
 .ribbon-tabs{
     font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
     list-style: none;
-    padding-top: 1.5%;
+    padding-top: 20px;
     font-size: 1em;   
 }
-
 
 .ribbon-content{
     min-height: 80px;    
@@ -53,22 +65,16 @@ ul{
     -webkit-border-radius: 5px;
 }
 
-li{
-    float: left;
-    line-height: 20px;
-}
 
 .ribbon-tabs li a{   
     display: block;
     border: transparent solid 1px;
     cursor: pointer;
-    padding: 5px 1.5%;
-    margin-left: 1%;
-    margin-bottom:-1px;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;padding-right: 12px;
-    padding-left: 12px;
+    -webkit-border-radius: 5px 5px 0 0;
+    padding: 2px 10px;
+    margin-bottom:-1px;
     margin-right: 5px;
 }
 
@@ -76,9 +82,6 @@ li{
     display: table;
     line-height: 0;
     content: "";
-}
-
-.ribbon-tabs:after, .ribbon-pills:after {
     clear: both;
 }
 
@@ -88,21 +91,18 @@ li{
 }
 
 .ribbon-tabs .active a{
-    cursor: default;
-    padding-bottom: 6px;
-    border: #859ebf solid 1px;
-    border-bottom: none;    
+    cursor: default; 
 }
 
-/*.ribbon-content .ribbon-pane:not(:first-child){  
-    display: none;
-}*/
-
-.ribbon-pane:not(.selected){
+.context-tab{
     display: none;
 }
 
-.ribbon-pane.selected{
+.ribbon-pane:not(.active){
+    display: none;
+}
+
+.ribbon-pane.active{
     display: block;
 }
 
@@ -111,6 +111,7 @@ li{
     border-bottom: none;
     color: #fff;
 
+    background: rgb(57, 120, 209);
     background-image: linear-gradient(top, #4488e5 0,#2860b3 100%);
     background-image: -webkit-linear-gradient(top, #4488e5 0,#2860b3 100%);
     background-image: -moz-linear-gradient(top, #4488e5 0,#2860b3 100%);
@@ -123,6 +124,7 @@ li{
     border: 1px solid #1f48a1;
     border-bottom: none;
 
+    background: rgb(57, 120, 209);
     background-image: linear-gradient(top, #5498f5 0,#3870c3 100%);
     background-image: -webkit-linear-gradient(top, #5498f5 0,#3870c3 100%);
     background-image: -moz-linear-gradient(top, #5498f5 0,#3870c3 100%);

@@ -41,16 +41,16 @@
             var dir = delta > 0 ? true : false;
             var current_active = ribbon_object.find('li.active');
 
-            if (dir) {
+            if (!dir) {//sentido del movimiento
                 //arriba
-                var next_tab = current_active.next('.ribbon-tabs li:not(.main-tab)');
+                var next_tab = current_active.next('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
                 if (next_tab.length !== 0) {
                     current_active.toggleClass('active');
                     next_tab.trigger('tab_changed', next_tab);
                 }
             } else {
                 //abajo
-                var prev_tab = current_active.prev('.ribbon-tabs li:not(.main-tab)');
+                var prev_tab = current_active.prev('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
                 if (prev_tab.length !== 0) {
                     current_active.toggleClass('active');
                     prev_tab.trigger('tab_changed', prev_tab);
@@ -65,14 +65,16 @@
             if (!tab.hasClass('active'))
                 tab.addClass('active');
 
-            var pane_id = tab.data('toggle');
-            console.log(pane_id);
-            var selected_pane = ribbon_object.find('#' + pane_id);
+            tab = tab.find('a');
 
-            ribbon_object.find('.ribbon-pane.selected');
-            selected_pane.addClass('active');
+            if (tab.data('toggle') === 'tab') {
+                var pane_id = tab.attr('href');
+                var select_pane = ribbon_object.find(pane_id);
 
-            //console.log(selected_pane);
+                ribbon_object.find('.ribbon-pane.active').toggleClass('active');
+                select_pane.addClass('active');
+            }//posibilidad de añadir otro tipo de tab o pagina
+
         });
     };
 
