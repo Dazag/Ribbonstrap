@@ -15,6 +15,10 @@ body{
     background-color: #c9cdd2;
 }
 
+.sprite{    
+    background: url(images/ribbon-sprite.png) no-repeat top left;
+}
+
 .ribbon{       
     font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
     position: fixed;
@@ -29,6 +33,17 @@ body{
     /* Rules below not implemented in browsers yet */
     -o-user-select: none;
 }
+
+.ribbon-foot{
+    position: fixed;
+    bottom: 0;
+    height: auto;
+}
+
+.ribbon-pages{
+    
+}
+
 .ribbon-title {
     font-size: 1.2em;
     text-align: center;
@@ -65,17 +80,25 @@ li{
     -webkit-border-radius: 5px;
 }
 
+.ribbon-tabs .active a{
+    cursor: default; 
+    border-bottom: none;
+    padding-bottom: 5px;
+}
 
-.ribbon-tabs li a{   
+.ribbon-tabs li a{
+    text-decoration: none;
+    color: black;
+    position: relative;
     display: block;
     border: transparent solid 1px;
     cursor: pointer;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
     -webkit-border-radius: 5px 5px 0 0;
-    padding: 2px 10px;
+    padding: 4px 10px;
     margin-bottom:-1px;
-    margin-right: 5px;
+    margin-right: 5px;    
 }
 
 .ribbon-tabs:before,  .ribbon-tabs:after{
@@ -85,17 +108,16 @@ li{
     clear: both;
 }
 
-.ribbon-tabs li a{
-    text-decoration: none;
-    color: black;
-}
-
-.ribbon-tabs .active a{
-    cursor: default; 
-}
-
-.context-tab{
+.ribbon-tabs .context-tab{
     display: none;
+}
+.ribbon-tabs .active.context-tab{
+    display: none;
+}
+
+.ribbon-tabs .main-tab a, .ribbon-tabs .main-tab a:hover,.ribbon-content,
+.ribbon-tabs li:not(.active):not(.main-tab) a:hover{
+    border: solid 1px;
 }
 
 .ribbon-pane:not(.active){
@@ -106,29 +128,169 @@ li{
     display: block;
 }
 
-.ribbon-tabs .main-tab a {
-    border: 1px solid #1f48a1;
-    border-bottom: none;
-    color: #fff;
+/*Sprite*/
+.ribbon-icon-BackgroundGlossy{ background-position: 0 0; width: 313px; height: 118px; } 
+.ribbon-icon-KryptonUrlLinkLabelDefaultIcon{ background-position: 0 -128px; width: 16px; height: 16px; } 
+.ribbon-icon-about_facebook{ background-position: 0 -154px; width: 99px; height: 28px; } 
+.ribbon-icon-about_tuenti{ background-position: 0 -192px; width: 99px; height: 28px; } 
+.ribbon-icon-about_twitter{ background-position: 0 -230px; width: 112px; height: 25px; } 
+.ribbon-icon-app_button{ background-position: 0 -265px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_background{ background-position: 0 -307px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_preview{ background-position: 0 -349px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_print_size{ background-position: 0 -391px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_properties{ background-position: 0 -433px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_size{ background-position: 0 -475px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_style{ background-position: 0 -517px; width: 32px; height: 32px; } 
+.ribbon-icon-doc_template{ background-position: 0 -559px; width: 32px; height: 32px; } 
+.ribbon-icon-document{ background-position: 0 -601px; width: 128px; height: 128px; } 
+.ribbon-icon-document_new{ background-position: 0 -739px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_copy{ background-position: 0 -765px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_cut{ background-position: 0 -791px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_delete{ background-position: 0 -817px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_find{ background-position: 0 -843px; width: 32px; height: 32px; } 
+.ribbon-icon-edit_find_small{ background-position: 0 -885px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_html{ background-position: 0 -911px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_paste{ background-position: 0 -937px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_paste_normal{ background-position: 0 -963px; width: 17px; height: 16px; } 
+.ribbon-icon-edit_paste_plain{ background-position: 0 -989px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_redo{ background-position: 0 -1015px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_replace{ background-position: 0 -1041px; width: 16px; height: 16px; } 
+.ribbon-icon-edit_undo{ background-position: 0 -1067px; width: 16px; height: 16px; } 
+.ribbon-icon-element_size{ background-position: 0 -1093px; width: 32px; height: 32px; } 
+.ribbon-icon-equation_editor{ background-position: 0 -1135px; width: 128px; height: 128px; } 
+.ribbon-icon-file_clean_html{ background-position: 0 -1273px; width: 32px; height: 32px; } 
+.ribbon-icon-file_format_cht{ background-position: 0 -1315px; width: 32px; height: 32px; } 
+.ribbon-icon-file_format_html{ background-position: 0 -1357px; width: 32px; height: 32px; } 
+.ribbon-icon-file_format_images{ background-position: 0 -1399px; width: 32px; height: 32px; } 
+.ribbon-icon-file_format_pdf{ background-position: 0 -1441px; width: 32px; height: 32px; } 
+.ribbon-icon-file_format_word{ background-position: 0 -1483px; width: 32px; height: 32px; } 
+.ribbon-icon-file_load{ background-position: 0 -1525px; width: 32px; height: 32px; } 
+.ribbon-icon-file_new{ background-position: 0 -1567px; width: 32px; height: 32px; } 
+.ribbon-icon-file_new_web{ background-position: 0 -1609px; width: 32px; height: 32px; } 
+.ribbon-icon-file_page_settings{ background-position: 0 -1651px; width: 32px; height: 32px; } 
+.ribbon-icon-file_print{ background-position: 0 -1693px; width: 32px; height: 32px; } 
+.ribbon-icon-file_print_preview{ background-position: 0 -1735px; width: 32px; height: 32px; } 
+.ribbon-icon-file_print_quick{ background-position: 0 -1777px; width: 32px; height: 32px; } 
+.ribbon-icon-file_save{ background-position: 0 -1819px; width: 32px; height: 32px; } 
+.ribbon-icon-file_save_as{ background-position: 0 -1861px; width: 32px; height: 32px; } 
+.ribbon-icon-file_upload{ background-position: 0 -1903px; width: 32px; height: 32px; } 
+.ribbon-icon-help_about{ background-position: 0 -1945px; width: 32px; height: 32px; } 
+.ribbon-icon-help_help{ background-position: 0 -1987px; width: 32px; height: 32px; } 
+.ribbon-icon-help_small{ background-position: -323px 0; width: 16px; height: 16px; } 
+.ribbon-icon-help_tricks{ background-position: -323px -26px; width: 32px; height: 32px; } 
+.ribbon-icon-help_update{ background-position: -323px -68px; width: 32px; height: 32px; } 
+.ribbon-icon-hyperlink_delete{ background-position: -323px -110px; width: 16px; height: 16px; } 
+.ribbon-icon-hyperlink_go{ background-position: -323px -136px; width: 16px; height: 16px; } 
+.ribbon-icon-image_delete{ background-position: -323px -162px; width: 32px; height: 32px; } 
+.ribbon-icon-image_open{ background-position: -323px -204px; width: 32px; height: 32px; } 
+.ribbon-icon-image_position{ background-position: -323px -246px; width: 32px; height: 32px; } 
+.ribbon-icon-image_position_inline{ background-position: -323px -288px; width: 48px; height: 48px; } 
+.ribbon-icon-image_position_left{ background-position: -323px -346px; width: 48px; height: 48px; } 
+.ribbon-icon-image_position_right{ background-position: -323px -404px; width: 48px; height: 48px; } 
+.ribbon-icon-image_replace{ background-position: -323px -462px; width: 32px; height: 32px; } 
+.ribbon-icon-image_restore{ background-position: -323px -504px; width: 16px; height: 16px; } 
+.ribbon-icon-image_rotate{ background-position: -323px -530px; width: 32px; height: 32px; } 
+.ribbon-icon-image_rotate_90left{ background-position: -323px -572px; width: 16px; height: 16px; } 
+.ribbon-icon-image_rotate_90right{ background-position: -323px -598px; width: 16px; height: 16px; } 
+.ribbon-icon-image_rotate_horizontal_flip{ background-position: -323px -624px; width: 16px; height: 16px; } 
+.ribbon-icon-image_rotate_vertical_flip{ background-position: -323px -650px; width: 16px; height: 16px; } 
+.ribbon-icon-image_save{ background-position: -323px -676px; width: 16px; height: 16px; } 
+.ribbon-icon-insert_abbreviation{ background-position: -323px -702px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_chart{ background-position: -323px -744px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_datetime{ background-position: -323px -786px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_formula{ background-position: -323px -828px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_horizontal_line{ background-position: -323px -870px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_hyperlink{ background-position: -323px -912px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_image{ background-position: -323px -954px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_keyword{ background-position: -323px -996px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_quote{ background-position: -323px -1038px; width: 32px; height: 32px; } 
+.ribbon-icon-insert_table{ background-position: -323px -1080px; width: 32px; height: 32px; } 
+.ribbon-icon-navigation_icon{ background-position: -323px -1122px; width: 32px; height: 32px; } 
+.ribbon-icon-navigation_image{ background-position: -323px -1164px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_quote{ background-position: -323px -1190px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_table{ background-position: -323px -1216px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_1{ background-position: -323px -1242px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_2{ background-position: -323px -1268px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_3{ background-position: -323px -1294px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_4{ background-position: -323px -1320px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_5{ background-position: -323px -1346px; width: 16px; height: 16px; } 
+.ribbon-icon-navigation_title_6{ background-position: -323px -1372px; width: 16px; height: 16px; } 
+.ribbon-icon-options_colors{ background-position: -323px -1398px; width: 32px; height: 32px; } 
+.ribbon-icon-options_desktop_layout{ background-position: -323px -1440px; width: 32px; height: 32px; } 
+.ribbon-icon-options_language{ background-position: -323px -1482px; width: 32px; height: 32px; } 
+.ribbon-icon-options_layout{ background-position: -323px -1524px; width: 32px; height: 32px; } 
+.ribbon-icon-options_sections{ background-position: -323px -1566px; width: 32px; height: 32px; } 
+.ribbon-icon-options_spacing{ background-position: -323px -1608px; width: 32px; height: 33px; } 
+.ribbon-icon-options_zoom{ background-position: -323px -1651px; width: 32px; height: 32px; } 
+.ribbon-icon-print_warning{ background-position: -323px -1693px; width: 369px; height: 238px; } 
+.ribbon-icon-printer{ background-position: -323px -1941px; width: 32px; height: 32px; } 
+.ribbon-icon-program_logo{ background-position: -323px -1983px; width: 128px; height: 128px; } 
+.ribbon-icon-program_logo_chuletas{ background-position: -702px 0; width: 128px; height: 128px; } 
+.ribbon-icon-program_logo_cribr{ background-position: -702px -138px; width: 128px; height: 128px; } 
+.ribbon-icon-progress_bar{ background-position: -702px -276px; width: 220px; height: 19px; } 
+.ribbon-icon-progress_circle{ background-position: -702px -305px; width: 32px; height: 32px; } 
+.ribbon-icon-qat_hide{ background-position: -702px -347px; width: 16px; height: 16px; } 
+.ribbon-icon-qat_print{ background-position: -702px -373px; width: 16px; height: 16px; } 
+.ribbon-icon-qat_redo{ background-position: -702px -399px; width: 16px; height: 16px; } 
+.ribbon-icon-qat_save{ background-position: -702px -425px; width: 16px; height: 16px; } 
+.ribbon-icon-qat_undo{ background-position: -702px -451px; width: 16px; height: 16px; } 
+.ribbon-icon-search_search{ background-position: -702px -477px; width: 16px; height: 16px; } 
+.ribbon-icon-settings_reset{ background-position: -702px -503px; width: 16px; height: 16px; } 
+.ribbon-icon-size_automatic{ background-position: -702px -529px; width: 32px; height: 32px; } 
+.ribbon-icon-size_height{ background-position: -702px -571px; width: 16px; height: 16px; } 
+.ribbon-icon-size_width{ background-position: -702px -597px; width: 16px; height: 16px; } 
+.ribbon-icon-synonym_next{ background-position: -702px -623px; width: 16px; height: 16px; } 
+.ribbon-icon-table_border_color{ background-position: -702px -649px; width: 32px; height: 32px; } 
+.ribbon-icon-table_delete{ background-position: -702px -691px; width: 32px; height: 32px; } 
+.ribbon-icon-table_delete_column{ background-position: -702px -733px; width: 16px; height: 16px; } 
+.ribbon-icon-table_delete_row{ background-position: -702px -759px; width: 16px; height: 16px; } 
+.ribbon-icon-table_delete_table{ background-position: -702px -785px; width: 16px; height: 16px; } 
+.ribbon-icon-table_delete_table_nocontent{ background-position: -702px -811px; width: 16px; height: 16px; } 
+.ribbon-icon-table_insert_column_left{ background-position: -702px -837px; width: 32px; height: 32px; } 
+.ribbon-icon-table_insert_column_right{ background-position: -702px -879px; width: 32px; height: 32px; } 
+.ribbon-icon-table_insert_row_begin{ background-position: -702px -921px; width: 32px; height: 32px; } 
+.ribbon-icon-table_insert_row_end{ background-position: -702px -963px; width: 32px; height: 32px; } 
+.ribbon-icon-text_align_center{ background-position: -702px -1005px; width: 16px; height: 16px; } 
+.ribbon-icon-text_align_justify{ background-position: -702px -1031px; width: 16px; height: 16px; } 
+.ribbon-icon-text_align_left{ background-position: -702px -1057px; width: 16px; height: 16px; } 
+.ribbon-icon-text_align_right{ background-position: -702px -1083px; width: 16px; height: 16px; } 
+.ribbon-icon-text_backcolor{ background-position: -702px -1109px; width: 16px; height: 16px; } 
+.ribbon-icon-text_bold{ background-position: -702px -1135px; width: 16px; height: 16px; } 
+.ribbon-icon-text_case{ background-position: -702px -1161px; width: 16px; height: 16px; } 
+.ribbon-icon-text_color{ background-position: -702px -1187px; width: 16px; height: 16px; } 
+.ribbon-icon-text_color{ background-position: -702px -1213px; width: 16px; height: 16px; } 
+.ribbon-icon-text_enlarge{ background-position: -702px -1239px; width: 16px; height: 16px; } 
+.ribbon-icon-text_erase_format{ background-position: -702px -1265px; width: 16px; height: 16px; } 
+.ribbon-icon-text_font{ background-position: -702px -1291px; width: 128px; height: 128px; } 
+.ribbon-icon-text_heading_1{ background-position: -702px -1429px; width: 16px; height: 16px; } 
+.ribbon-icon-text_heading_2{ background-position: -702px -1455px; width: 16px; height: 16px; } 
+.ribbon-icon-text_heading_3{ background-position: -702px -1481px; width: 16px; height: 16px; } 
+.ribbon-icon-text_heading_4{ background-position: -702px -1507px; width: 16px; height: 16px; } 
+.ribbon-icon-text_indent{ background-position: -702px -1533px; width: 16px; height: 16px; } 
+.ribbon-icon-text_indent_remove{ background-position: -702px -1559px; width: 16px; height: 16px; } 
+.ribbon-icon-text_italic{ background-position: -702px -1585px; width: 16px; height: 16px; } 
+.ribbon-icon-text_list_auto{ background-position: -702px -1611px; width: 16px; height: 16px; } 
+.ribbon-icon-text_list_bullets{ background-position: -702px -1637px; width: 16px; height: 16px; } 
+.ribbon-icon-text_list_numbers{ background-position: -702px -1663px; width: 16px; height: 16px; } 
+.ribbon-icon-text_shrink{ background-position: -702px -1689px; width: 16px; height: 16px; } 
+.ribbon-icon-text_subscript{ background-position: -702px -1715px; width: 16px; height: 16px; } 
+.ribbon-icon-text_superscript{ background-position: -702px -1741px; width: 16px; height: 16px; } 
+.ribbon-icon-text_title{ background-position: -702px -1767px; width: 16px; height: 16px; } 
+.ribbon-icon-text_underline{ background-position: -702px -1793px; width: 16px; height: 16px; } 
+.ribbon-icon-tool_detect_language{ background-position: -702px -1819px; width: 13px; height: 13px; } 
+.ribbon-icon-tool_detect_language2{ background-position: -702px -1842px; width: 13px; height: 13px; } 
+.ribbon-icon-tools_compress{ background-position: -702px -1865px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_settings{ background-position: -702px -1907px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_spellcheck{ background-position: -702px -1949px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_summarizer{ background-position: -1081px 0; width: 32px; height: 32px; } 
+.ribbon-icon-tools_summarizer_generate{ background-position: -1081px -42px; width: 13px; height: 13px; } 
+.ribbon-icon-tools_synonym{ background-position: -1081px -65px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_translator{ background-position: -1081px -107px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_web_search{ background-position: -1081px -149px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_wolfram{ background-position: -1081px -191px; width: 32px; height: 32px; } 
+.ribbon-icon-tools_wolfram_logo{ background-position: -1081px -233px; width: 195px; height: 32px; } 
+.ribbon-icon-tools_wolfram_query{ background-position: -1081px -275px; width: 16px; height: 16px; } 
+.ribbon-icon-translator_exchange{ background-position: -1081px -301px; width: 21px; height: 28px; } 
+.ribbon-icon-update_download{ background-position: -1081px -339px; width: 100px; height: 100px; } 
+.ribbon-icon-web_find{ background-position: -1081px -449px; width: 16px; height: 16px; } 
 
-    background: rgb(57, 120, 209);
-    background-image: linear-gradient(top, #4488e5 0,#2860b3 100%);
-    background-image: -webkit-linear-gradient(top, #4488e5 0,#2860b3 100%);
-    background-image: -moz-linear-gradient(top, #4488e5 0,#2860b3 100%);
-    background-image: -o-linear-gradient(top, #4488e5 0,#2860b3 100%);
-    background-image: -ms-linear-gradient(top, #4488e5 0,#2860b3 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4488e5),color-stop(100%,#2860b3));
-}
-
-.ribbon-tabs .main-tab a:hover {
-    border: 1px solid #1f48a1;
-    border-bottom: none;
-
-    background: rgb(57, 120, 209);
-    background-image: linear-gradient(top, #5498f5 0,#3870c3 100%);
-    background-image: -webkit-linear-gradient(top, #5498f5 0,#3870c3 100%);
-    background-image: -moz-linear-gradient(top, #5498f5 0,#3870c3 100%);
-    background-image: -o-linear-gradient(top, #5498f5 0,#3870c3 100%);
-    background-image: -ms-linear-gradient(top, #5498f5 0,#3870c3 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5498f5),color-stop(100%,#3870c3));
-}

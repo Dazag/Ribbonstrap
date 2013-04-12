@@ -8,73 +8,75 @@
 
 !function($) {
     $.fn.ribbon = function(options) {
+        return this.each(function() {
 
-        //initialize        
-        var ribbon_object = $(this);
+            //initialize        
+            var ribbon_object = $(this);
 
-        /**
-         * Click event on .ribbon-tabs li change to the active class
-         */
-        ribbon_object.find('li').click(function() {
+            /**
+             * Click event on .ribbon-tabs li change to the active class
+             */
+            ribbon_object.find('li').click(function() {
 
-            if (!$(this).hasClass('main-tab')) {
-                var current_tab = this;
+                if (!$(this).hasClass('main-tab')) {
+                    var current_tab = this;
 
-                $(this).closest('.ribbon-tabs').find('li').each(function() {
-                    $(this).toggleClass('active', this === current_tab);
-                });
+                    $(this).closest('.ribbon-tabs').find('li').each(function() {
+                        $(this).toggleClass('active', this === current_tab);
+                    });
 
-                var tab_actived = $(this).closest('.ribbon-tabs').find('li.active');
-                $(this).trigger('tab_changed', tab_actived);
-            }
-        });
-
-        /*Events*/
-
-        /**
-         * Change active tab when scrolling up,down hover the ribbon
-         * @param {event} event 
-         * @param {speed} delta 
-         * @return {boolean} always return false
-         */
-        ribbon_object.on('mousewheel', function(event, delta) {
-            var dir = delta > 0 ? true : false;
-            var current_active = ribbon_object.find('li.active');
-
-            if (!dir) {//sentido del movimiento
-                //arriba
-                var next_tab = current_active.next('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
-                if (next_tab.length !== 0) {
-                    current_active.toggleClass('active');
-                    next_tab.trigger('tab_changed', next_tab);
+                    var tab_actived = $(this).closest('.ribbon-tabs').find('li.active');
+                    $(this).trigger('tab_changed', tab_actived);
                 }
-            } else {
-                //abajo
-                var prev_tab = current_active.prev('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
-                if (prev_tab.length !== 0) {
-                    current_active.toggleClass('active');
-                    prev_tab.trigger('tab_changed', prev_tab);
+            });
+
+            /*Events*/
+
+            /**
+             * Change active tab when scrolling up,down hover the ribbon
+             * @param {event} event 
+             * @param {speed} delta 
+             * @return {boolean} always return false
+             */
+            ribbon_object.on('mousewheel', function(event, delta) {
+                var dir = delta > 0 ? true : false;
+                var current_active = ribbon_object.find('li.active');
+
+                if (!dir) {//sentido del movimiento
+                    //arriba
+                    var next_tab = current_active.next('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
+                    if (next_tab.length !== 0) {
+                        current_active.toggleClass('active');
+                        next_tab.trigger('tab_changed', next_tab);
+                    }
+                } else {
+                    //abajo
+                    var prev_tab = current_active.prev('.ribbon-tabs li:not(.main-tab):not(.context-tab)');
+                    if (prev_tab.length !== 0) {
+                        current_active.toggleClass('active');
+                        prev_tab.trigger('tab_changed', prev_tab);
+                    }
                 }
-            }
-            return false;
-        });
+                return false;
+            });
 
-        ribbon_object.on('tab_changed', function(event) {
-            var tab = $(event.target);
+            ribbon_object.on('tab_changed', function(event) {
+                var tab = $(event.target);
 
-            if (!tab.hasClass('active'))
-                tab.addClass('active');
+                if (!tab.hasClass('active'))
+                    tab.addClass('active');
 
-            tab = tab.find('a');
+                tab = tab.find('a');
 
-            if (tab.data('toggle') === 'tab') {
-                var pane_id = tab.attr('href');
-                var select_pane = ribbon_object.find(pane_id);
+                if (tab.data('toggle') === 'tab') {
+                    var pane_id = tab.attr('href');
+                    var select_pane = ribbon_object.find(pane_id);
 
-                ribbon_object.find('.ribbon-pane.active').toggleClass('active');
-                select_pane.addClass('active');
-            }//posibilidad de añadir otro tipo de tab o pagina
+                    ribbon_object.find('.ribbon-pane.active').toggleClass('active');
+                    select_pane.addClass('active');
+                }//posibilidad de añadir otro tipo de tab o pagina
 
+            });
         });
     };
 

@@ -20,13 +20,14 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>        
         <script type="text/javascript">
             !window.jQuery && document.write(unescape('%3Cscript src="static/jquery-1.9.1.min.js"%3E%3C/script%3E'));
-                </script>
+        </script>
     </head>
     <body>
 
         <!--Here the structure starts-->
+        <div class="sprite"></div>
         <div class="ribbon" unselectable="on">
-            <p class="ribbon-title">Nombre del Documento - &copy Ribbonstrap 2013</p>
+            <p class="ribbon-title" unselectable="off">Nombre del Documento - &copy Ribbonstrap 2013</p>
             <ul class="ribbon-tabs">
                 <li class="main-tab"><a href="#main" data-toggle="tab">Archivo</a></li>
                 <li class="active"><a href="#general" data-toggle="tab">General</a></li>
@@ -50,7 +51,7 @@
                 </div>
                 <div id="general" class="ribbon-pane active">  
                     <div class="ribbon-group">
-                        <div class="ribbon-btn"></div>
+                        <div class="ribbon-btn ribbon-icon-search_search"></div>
                     </div>
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
@@ -86,11 +87,16 @@
                 </div>
             </div>
         </div>
-        <div class="pages">
+        <div class="ribbon-pages">
             <ul class="ribbon-tabs">
-                <li><a data-toggle="page">chuleta1.txt</a></li>
+                <li class="active"><a data-toggle="page">chuleta1.txt</a></li>
                 <li><a>chuleta2.txt</a></li>
                 <li><a>chuleta3.txt</a></li>
+            </ul>
+        </div>
+        <div class="ribbon-foot">
+            <ul class="ribbon-tabs">
+                <li class="active"><a>Prueba</a></li>
             </ul>
         </div>
 
@@ -99,8 +105,9 @@
         <script type="text/javascript" src="static/jquery.mousewheel.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('.ribbon').ribbon();
-                $('.pages').ribbon();
+                $('.ribbon').ribbon({"type": "ribbon"});
+                $('.ribbon-pages').ribbon({"type": "page"});
+                $('.ribbon-foot').ribbon({"type": "foot"});
             });</script>
     </body>
 
