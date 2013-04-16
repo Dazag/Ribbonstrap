@@ -1,6 +1,6 @@
 <?php
 /**
- * @name Chuletator
+ * @name Ribbonstrap
  * @link http://www.chuletator.net Library created for an online text editor (chuletator) based in
  * the Ribbon Interface. * 
  * @author David Zamora Gutiérrez <david@ideatic.net>
@@ -51,16 +51,31 @@
                 </div>
                 <div id="general" class="ribbon-pane active">  
                     <div class="ribbon-group">
-                        <div class="ribbon-btn ribbon-icon-search_search"></div>
-                    </div>
+                        <select class="ribbon-btn">
+                            <option>Arial</option>
+                            <option>Helvetica</option>
+                            <option>Ribbon-Sans</option>
+                            <option>Times New Roman</option>
+                        </select>
+                        <select class="ribbon-btn">
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                        </select>
+                        <div class="ribbon-btn">                            
+                            <i class="text-enlarge"></i><span>Nombre</span>
+                        </div>
+                    </div>                    
+                    <div class="ribbon-separator"></div>
                     <div class="ribbon-group">
-                        <div class="ribbon-btn"></div>
+                        <div class="ribbon-btn">Botón</div>
                     </div>
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>
                 </div>
-                <div id="insert" class="ribbon-pane">   
+                <div id="insert" class="ribbon-pane">
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                    
@@ -93,22 +108,45 @@
                 <li><a>chuleta2.txt</a></li>
                 <li><a>chuleta3.txt</a></li>
             </ul>
+            
+            
+            
+            
+            <div class="ribbon-editor">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est nisi, vitae ultricies augue. 
+                Quisque nisl ipsum, semper vel tristique sit amet, hendrerit vel magna. Pellentesque congue metus mattis lorem tempor vehicula. Donec placerat fringilla consectetur. 
+                Aliquam tellus ligula, pretium id volutpat non, dapibus vitae mi. 
+                Nam mauris odio, congue ut vestibulum ac, mollis a dolor. Vivamus non pellentesque est. Nullam volutpat bibendum arcu quis malesuada. 
+                Sed a nisl condimentum erat facilisis placerat. Aliquam vel cursus nibh. Nam dignissim risus id risus aliquam elementum. 
+                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.
+            </div>
+        </div>
+        
+        
+        <div class="ribbon-pages">
+            <ul class="ribbon-tabs tabs-below">
+                <li class="active"><a data-toggle="page">Page 1</a></li>
+                <li><a>Page 2</a></li>
+                <li><a>Page 3</a></li>
+            </ul>
         </div>
         <div class="ribbon-foot">
             <ul class="ribbon-tabs">
                 <li class="active"><a>Prueba</a></li>
             </ul>
-        </div>
+        </div> 
 
-        <!--Load javascripts -->        
+
+        <!--Load javascripts -->
         <script type="text/javascript" src="static/ribbon.js"></script>
         <script type="text/javascript" src="static/jquery.mousewheel.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('.ribbon').ribbon({"type": "ribbon"});
-                $('.ribbon-pages').ribbon({"type": "page"});
-                $('.ribbon-foot').ribbon({"type": "foot"});
-            });</script>
+            $('.ribbon').ribbon();
+            $('.ribbon-pages').ribbon({
+                disable_scroll: true
+            });
+            $('.ribbon-foot').ribbon();
+        </script>
     </body>
 
 </html>

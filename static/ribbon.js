@@ -6,32 +6,54 @@
  * @copyright (c) 2013, Ideatic España 
  */
 
-!function($) {
-    $.fn.ribbon = function(options) {
-        return this.each(function() {
+(function($) {
 
-            //initialize        
-            var ribbon_object = $(this);
+    var methods = {//implementar más tarde
+        init: function(options) {
+            this.settings = $.extend({
+                disable_scroll: false
+            }, options);
+        }
+        //Any other methods you want to implement?? 
+        //--Here--
+    };
 
-            /**
-             * Click event on .ribbon-tabs li change to the active class
-             */
-            ribbon_object.find('li').click(function() {
+    $.fn.ribbon = function(method_or_options) {
 
-                if (!$(this).hasClass('main-tab')) {
-                    var current_tab = this;
+        var ribbon_object = this;
 
-                    $(this).closest('.ribbon-tabs').find('li').each(function() {
-                        $(this).toggleClass('active', this === current_tab);
-                    });
+        // Method | Options calling logic
+        if (methods[method_or_options]) {
+            //Call the method
+            return methods[ method_or_options ].apply(ribbon_object, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method_or_options === 'object' || !method_or_options) {
+            //Initialize
+            methods.init.apply(ribbon_object, arguments);
+        } else {
+            $.error('Method ' + method_or_options + ' does not exist on jQuery.tooltip');
+        }
 
-                    var tab_actived = $(this).closest('.ribbon-tabs').find('li.active');
-                    $(this).trigger('tab_changed', tab_actived);
-                }
-            });
 
-            /*Events*/
+        /*Events*/
 
+        /**
+         * Click event on .ribbon-tabs li change to the active class
+         */
+        ribbon_object.find('li').click(function() {
+
+            if (!$(this).hasClass('main-tab')) {
+                var current_tab = this;
+
+                $(this).closest('.ribbon-tabs').find('li').each(function() {
+                    $(this).toggleClass('active', this === current_tab);
+                });
+
+                var tab_actived = $(this).closest('.ribbon-tabs').find('li.active');
+                $(this).trigger('tab_changed', tab_actived);
+            }
+        });
+
+        if (!ribbon_object.settings.disable_scroll) {
             /**
              * Change active tab when scrolling up,down hover the ribbon
              * @param {event} event 
@@ -59,25 +81,28 @@
                 }
                 return false;
             });
+        }
 
-            ribbon_object.on('tab_changed', function(event) {
-                var tab = $(event.target);
+        /**
+         * tab_changed triggers when a new tab is selected
+         */
+        ribbon_object.on('tab_changed', function(event) {
+            var tab = $(event.target);
 
-                if (!tab.hasClass('active'))
-                    tab.addClass('active');
+            if (!tab.hasClass('active'))
+                tab.addClass('active');
 
-                tab = tab.find('a');
+            tab = tab.find('a');
 
-                if (tab.data('toggle') === 'tab') {
-                    var pane_id = tab.attr('href');
-                    var select_pane = ribbon_object.find(pane_id);
+            if (tab.data('toggle') === 'tab') {
+                var pane_id = tab.attr('href');
+                var select_pane = ribbon_object.find(pane_id);
 
-                    ribbon_object.find('.ribbon-pane.active').toggleClass('active');
-                    select_pane.addClass('active');
-                }//posibilidad de añadir otro tipo de tab o pagina
+                ribbon_object.find('.ribbon-pane.active').toggleClass('active');
+                select_pane.addClass('active');
+            }//posibilidad de añadir otro tipo de tab o pagina
 
-            });
         });
-    };
 
-}(window.jQuery);
+    };
+})(jQuery);
