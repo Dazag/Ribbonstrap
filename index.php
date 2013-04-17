@@ -25,9 +25,8 @@
     <body>
 
         <!--Here the structure starts-->
-        <div class="sprite"></div>
         <div class="ribbon" unselectable="on">
-            <p class="ribbon-title" unselectable="off">Nombre del Documento - &copy Ribbonstrap 2013</p>
+            <span class="ribbon-title" unselectable="off">Nombre del Documento - &copy Ribbonstrap 2013</span>
             <ul class="ribbon-tabs">
                 <li class="main-tab"><a href="#main" data-toggle="tab">Archivo</a></li>
                 <li class="active"><a href="#general" data-toggle="tab">General</a></li>
@@ -38,63 +37,96 @@
                 <li class="context-tab"><a href="#images" data-toggle="tab">Imágenes</a></li>
             </ul>
             <div class="ribbon-content">
+
                 <div id="main" class="ribbon-pane">
-                    <div class="ribbon-group">
-                        <div class="ribbon-btn"></div>
-                    </div>
-                    <div class="ribbon-group">
-                        <div class="ribbon-btn"></div>
-                    </div>
-                    <div class="ribbon-group">
-                        <div class="ribbon-btn"></div>
-                    </div>
+
                 </div>
+
                 <div id="general" class="ribbon-pane active">  
                     <div class="ribbon-group">
-                        <select class="ribbon-btn">
+                        <select class="ribbon-btn" title="Cambia el tipo de fuente">
                             <option>Arial</option>
                             <option>Helvetica</option>
                             <option>Ribbon-Sans</option>
                             <option>Times New Roman</option>
                         </select>
-                        <select class="ribbon-btn">
+
+                        <select class="ribbon-btn" title="Cambia el tamaño de fuente">
                             <option>12</option>
                             <option>13</option>
                             <option>14</option>
                             <option>15</option>
                         </select>
-                        <div class="ribbon-btn">                            
-                            <i class="text-enlarge"></i><span>Nombre</span>
+
+                        <div class="ribbon-btn btn-small" title="Aumenta tamaño de fuente"> 
+                            <i class="text-enlarge"></i>
                         </div>
-                    </div>                    
+
+                        <div class="ribbon-btn btn-small" title="Disminuye tamaño de fuente">  
+                            <i class="text-shrink"></i>
+                        </div>
+                        
+                        <div class="ribbon-btn btn-small btn-newline" title="Negrita">  
+                            <i class="text-bold"></i>
+                        </div>
+                        
+                        <div class="ribbon-btn btn-small" title="Italiza la fuente">  
+                            <i class="text-italic"></i>
+                        </div>
+                        
+                        <div class="ribbon-btn btn-small" title="Italiza la fuente">  
+                            <i class="text-underline"></i>
+                        </div>
+                        <div class="ribbon-btn btn-small" title="Italiza la fuente">  
+                            <i class="text-subscript"></i>
+                        </div>
+                        
+                        
+                        <span class="group-title">Fuente</span>
+                    </div>                           
+
                     <div class="ribbon-separator"></div>
-                    <div class="ribbon-group">
-                        <div class="ribbon-btn">Botón</div>
+
+                    <div class="ribbon-group">                        
+                        <div class="ribbon-btn">                            
+                            <img src="static/images/insert_table.png"/>
+                            <span>Insertar<br> Tabla</span></div>
+
+                        <div class="ribbon-btn">
+                            <img src="static/images/insert_image.png"/>
+                            <span>Insertar<br> Imagen</span></div>
                     </div>
+
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>
                 </div>
-                <div id="insert" class="ribbon-pane">
+
+                <div id="insert" class="ribbon-pane">                    
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
                     </div>                    
                 </div>
-                <div id="options" class="ribbon-pane">   
+
+                <div id="options" class="ribbon-pane">                     
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
-                    </div>                    
+                    </div>                        
                 </div>
-                <div id="info" class="ribbon-pane">     
+
+                <div id="info" class="ribbon-pane">                    
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
-                    </div>                  
+                    </div>                                      
                 </div>
-                <div id="help" class="ribbon-pane">  
+
+                <div id="help" class="ribbon-pane">                      
                     <div class="ribbon-group">
                         <div class="ribbon-btn"></div>
-                    </div>                  
+                    </div> 
+
                 </div>
+
                 <div id="images" class="ribbon-pane">
                     <div class="ribbon-group">
 
@@ -108,23 +140,33 @@
                 <li><a>chuleta2.txt</a></li>
                 <li><a>chuleta3.txt</a></li>
             </ul>
-            
-            
-            
-            
+
+
+
+
             <div class="ribbon-editor">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est nisi, vitae ultricies augue. 
                 Quisque nisl ipsum, semper vel tristique sit amet, hendrerit vel magna. Pellentesque congue metus mattis lorem tempor vehicula. Donec placerat fringilla consectetur. 
                 Aliquam tellus ligula, pretium id volutpat non, dapibus vitae mi. 
                 Nam mauris odio, congue ut vestibulum ac, mollis a dolor. Vivamus non pellentesque est. Nullam volutpat bibendum arcu quis malesuada. 
                 Sed a nisl condimentum erat facilisis placerat. Aliquam vel cursus nibh. Nam dignissim risus id risus aliquam elementum. 
-                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.
-            </div>
-        </div>
-        
-        
-        <div class="ribbon-pages">
-            <ul class="ribbon-tabs tabs-below">
+                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est nisi, vitae ultricies augue. 
+                Quisque nisl ipsum, semper vel tristique sit amet, hendrerit vel magna. Pellentesque congue metus mattis lorem tempor vehicula. Donec placerat fringilla consectetur. 
+                Aliquam tellus ligula, pretium id volutpat non, dapibus vitae mi. 
+                Nam mauris odio, congue ut vestibulum ac, mollis a dolor. Vivamus non pellentesque est. Nullam volutpat bibendum arcu quis malesuada. 
+                Sed a nisl condimentum erat facilisis placerat. Aliquam vel cursus nibh. Nam dignissim risus id risus aliquam elementum. 
+                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est nisi, vitae ultricies augue. 
+                Quisque nisl ipsum, semper vel tristique sit amet, hendrerit vel magna. Pellentesque congue metus mattis lorem tempor vehicula. Donec placerat fringilla consectetur. 
+                Aliquam tellus ligula, pretium id volutpat non, dapibus vitae mi. 
+                Nam mauris odio, congue ut vestibulum ac, mollis a dolor. Vivamus non pellentesque est. Nullam volutpat bibendum arcu quis malesuada. 
+                Sed a nisl condimentum erat facilisis placerat. Aliquam vel cursus nibh. Nam dignissim risus id risus aliquam elementum. 
+                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac est nisi, vitae ultricies augue. 
+                Quisque nisl ipsum, semper vel tristique sit amet, hendrerit vel magna. Pellentesque congue metus mattis lorem tempor vehicula. Donec placerat fringilla consectetur. 
+                Aliquam tellus ligula, pretium id volutpat non, dapibus vitae mi. 
+                Nam mauris odio, congue ut vestibulum ac, mollis a dolor. Vivamus non pellentesque est. Nullam volutpat bibendum arcu quis malesuada. 
+                Sed a nisl condimentum erat facilisis placerat. Aliquam vel cursus nibh. Nam dignissim risus id risus aliquam elementum. 
+                Vestibulum sed nibh ac est dapibus convallis non sit amet elit. Ut libero tellus, pretium id laoreet eu, placerat non sem.<br><br>
+            </div><ul class="ribbon-tabs tabs-below">
                 <li class="active"><a data-toggle="page">Page 1</a></li>
                 <li><a>Page 2</a></li>
                 <li><a>Page 3</a></li>
@@ -143,7 +185,8 @@
         <script type="text/javascript">
             $('.ribbon').ribbon();
             $('.ribbon-pages').ribbon({
-                disable_scroll: true
+                disable_scroll: true,
+                closable_tab: true
             });
             $('.ribbon-foot').ribbon();
         </script>

@@ -15,7 +15,7 @@ body{
     font-size: 13px;
     line-height: 20px;
     color: #333;
-    margin-top: 200px;
+    margin-top: 155px;
     margin-bottom: 35px;
     background-color: #c9cdd2;
 }
@@ -24,7 +24,7 @@ body{
     font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
     position: fixed;
     top:0;
-    z-index: 999;
+    z-index: 99;
     width: 100%;
     box-shadow: 0px 3px 6px #373737;
     /*No select text*/
@@ -39,31 +39,36 @@ body{
 }
 
 .ribbon-foot{
+    z-index: 90;
     width: 100%;
     position: fixed;
     bottom: 0;
     height: 30px;
+    border-top: solid 1px #BEC2C6;
 }
 
 .ribbon-pages{
-    position: relative;
-    z-index: 0;
+    z-index: 1;
     width: 70%;
     padding: 0px 10px;
 }
 
 .ribbon-editor{
     padding: 15px;
-    min-height: 400px;
     background-color: white;
     border:solid 1px #BEC2C6;
 }
 
+.ribbon-content{ 
+    padding:  5px;
+}
+
 .ribbon-title {
-    font-size: 1.2em;
+    display: block;
+    font-size: 1.1em;
     text-align: center;
-    margin-top: 9px;
-    margin-bottom: 10px;
+    margin-top: 6px;
+    margin-bottom: 0px;
 }
 
 ul{
@@ -92,11 +97,6 @@ li{
     -webkit-border-radius: 0 0 5px 5px;
     margin-top: -1px;
     margin-bottom: 0;
-}
-
-.ribbon-content{
-    min-height: 80px;    
-    padding:  5px;
 }
 
 .ribbon-tabs .active a{
@@ -136,6 +136,7 @@ li{
 .ribbon-tabs .context-tab{
     display: none;
 }
+
 .ribbon-tabs .active.context-tab{
     display: none;
 }
@@ -154,6 +155,14 @@ li{
     width: 100%;
 }
 
+.ribbon-pane.main-tab {
+    position: absolute;
+    right: 0;
+    bottom:0;
+    background-color: white;
+    padding: 10px;
+}
+
 .ribbon-pane:not(.active){
     display: none;
 }
@@ -164,8 +173,8 @@ li{
 
 .ribbon-pane .ribbon-group{
     float: left;
+    height: 75px;
     position: relative;
-    height: 80px;
 }
 
 .ribbon-pane .ribbon-separator {
@@ -181,33 +190,128 @@ li{
 /*
     ribbon-group dependent format
 */
-
 .ribbon-group .ribbon-btn{
     float: left;
     font-size: 0.85em;
+    overflow: hidden;
+    line-height: 0.95em;
+}
+
+.ribbon-group .ribbon-btn:hover{
+    cursor: pointer;
 }
 
 .ribbon-group select.ribbon-btn{
     background-color: transparent;
-    -moz-appearance: none;
+    -moz-appearance: menu-item;
     -webkit-appearance: none;
     appearance: none;
     border:solid 1px #e0e0e0;
+    background: url(images/ribbon-arrow.png) right center no-repeat; 
+    padding: 3px 9px 3px 3px;
 }
 
 .ribbon-group div.ribbon-btn{
-    
+    height: 60px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    position: relative;
+    z-index: 1;
+    padding: 2px;
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+.ribbon-group div.ribbon-btn:before{
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.ribbon-group .group-title{
+    color: #666d7c;
+    font-size: 0.85em;
+    display: block;
+    text-align: center;
+    clear: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /*
     ribbon-btn format
 */
-.ribbon-btn .btn-small{
-
+.ribbon-btn.btn-small{
+    height: 15px !important;
 }
 
-.ribbon-btn .btn-middle{
-
+.ribbon-btn.btn-middle{
+    height: 60px !important;
 }
 
+.ribbon-btn i.text-enlarge{
+    display: block;
+    background: url(images/text_enlarge.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
 
+.ribbon-btn i.text-shrink{/*prepare for sprites*/
+    display: block;
+    background: url(images/text_shrink.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.ribbon-btn i.text-bold{/*prepare for sprites*/
+    display: block;
+    background: url(images/text_bold.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.ribbon-btn i.text-italic{/*prepare for sprites*/
+    display: block;
+    background: url(images/text_italic.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.ribbon-btn i.text-underline{/*prepare for sprites*/
+    display: block;
+    background: url(images/text_underline.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
+.ribbon-btn i.text-subscript{/*prepare for sprites*/
+    display: block;
+    background: url(images/text_subscript.png) center center no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.ribbon-btn img{
+    margin: auto;
+    display: block;
+}
+
+.ribbon-btn span{
+    padding-top: 2px;
+    clear: left;
+    display: block;
+    text-align: center;
+}
+
+.ribbon-btn.btn-newline{
+    clear: both;
+}
